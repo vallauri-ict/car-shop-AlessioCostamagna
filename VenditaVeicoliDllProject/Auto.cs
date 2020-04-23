@@ -12,7 +12,7 @@ namespace VenditaVeicoliDllProject
         public Auto() : base(
             "Mercedes",
             "GLX",
-            "Nero",
+            "Blu",
             2100,
             175.20,
             DateTime.Now,
