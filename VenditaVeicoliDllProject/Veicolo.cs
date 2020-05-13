@@ -10,46 +10,48 @@ namespace VenditaVeicoliDllProject
     {
 
         #region fields
+        private string targa;
         private string marca;
         private string modello;
-        private string colore;
+        private string versione;
         private int cilindrata;
-        private double potenzaKw;
+        private string tipoVeicolo;
+        private string tipologia;
+        private int km;
         private DateTime immatricolazione;
-        private bool isUsato;
-        private bool isKmZero;
-        private int kmPercorsi;
+        private double prezzo;
         #endregion
 
         public Veicolo() { }
 
-        public Veicolo(string marca, string modello, string colore, int cilindrata, double potenzaKw, DateTime immatricolazione, bool isUsato, bool isKmZero, int kmPercorsi)
+        public Veicolo(string targa,string marca, string modello, string versione, int cilindrata, string tipoVeicolo, string tipologia, int km, DateTime immatricolazione, double prezzo)
         {
+            this.Targa = targa;
             this.Marca = marca;
             this.Modello = modello;
-            this.Colore = colore;
+            this.Versione = versione;
             this.Cilindrata = cilindrata;
-            this.PotenzaKw = potenzaKw;
+            this.TipoVeicolo = tipoVeicolo;
+            this.Tipologia = tipologia;
+            this.Km = km;
             this.Immatricolazione = immatricolazione;
-            this.IsUsato = isUsato;
-            this.IsKmZero = isKmZero;
-            this.KmPercorsi = kmPercorsi;
+            this.Prezzo = prezzo;
         }
 
-        public string Marca { get => marca.ToUpper(); set => marca = value; }
+        public string Targa { get => targa; set => targa = value; }
+        public string Marca { get => marca; set => marca = value; }
         public string Modello { get => modello; set => modello = value; }
-        public string Colore { get => colore; set => colore = value; }
+        public string Versione { get => versione; set => versione = value; }
         public int Cilindrata { get => cilindrata; set => cilindrata = value; }
-        public double PotenzaKw { get => potenzaKw; set => potenzaKw = value; }
+        public string TipoVeicolo { get => tipoVeicolo; set => tipoVeicolo = value; }
+        public string Tipologia { get => tipologia; set => tipologia = value; }
+        public int Km { get => km; set => km = value; }
         public DateTime Immatricolazione { get => immatricolazione; set => immatricolazione = value; }
-        public bool IsUsato { get => isUsato; set => isUsato = value; }
-        public bool IsKmZero { get => isKmZero; set => isKmZero = value; }
-        public int KmPercorsi { get => kmPercorsi; set => kmPercorsi = value; }
+        public double Prezzo { get => prezzo; set => prezzo = value; }
 
         public override string ToString()
         {
-            string retVal = $"{this.Marca} {this.Modello} ({this.Immatricolazione.Year})";
-            return retVal;
+            return $"{this.Marca} {this.Modello} ({this.Immatricolazione.Year})"; 
         }
 
     }

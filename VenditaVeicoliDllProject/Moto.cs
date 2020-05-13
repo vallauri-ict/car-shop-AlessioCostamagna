@@ -5,45 +5,26 @@ namespace VenditaVeicoliDllProject
     [Serializable()]
     public class Moto:Veicolo
     {
-
-        private string marcaSella;
-
-        public Moto() : base(
-            "Ducati",
-            "Squalo",
-            "Nero",
-            1000,
-            75.20,
-            DateTime.Now,
-            false,
-            false,
-            0)
-        {
-            this.MarcaSella = "Cavallino";
-        }
-
-        public Moto(string marca, string modello, string colore,
-            int cilindrata, double potenzaKw, DateTime immatricolazione,
-            bool isUsato, bool isKmZero, int kmPercorsi, string marcaSella) 
+        public Moto(string targa,string marca, string modello, string versione,
+            int cilindrata, string tipoVeicolo, string tipologia, int km, DateTime immatricolazione, double prezzo) 
             : base(
+                targa,
                 marca,
                 modello,
-                colore,
+                versione,
                 cilindrata,
-                potenzaKw,
+                tipoVeicolo,
+                tipologia,
+                km,
                 immatricolazione,
-                isUsato,
-                isKmZero,
-                kmPercorsi)
+                prezzo)
         {
-            this.MarcaSella = marcaSella;
+            
         }
-
-        public string MarcaSella { get => marcaSella; set => marcaSella = value; }
 
         public override string ToString()
         {
-            return $"Moto: {base.ToString()} - Sella {this.MarcaSella}";
+            return $"Moto: {base.ToString()}";
         }
     }
 }

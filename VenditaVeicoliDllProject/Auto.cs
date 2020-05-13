@@ -6,45 +6,29 @@ namespace VenditaVeicoliDllProject
     [Serializable()]
     public class Auto : Veicolo
     {
-
-        private int numAirbag;
-
-        public Auto() : base(
-            "Mercedes",
-            "GLX",
-            "Blu",
-            2100,
-            175.20,
-            DateTime.Now,
-            false,
-            false,
-            0)
-        {
-            NumAirbag = 6;
-        }
-
-        public Auto(string marca, string modello, string colore,
-            int cilindrata, double potenzaKw, DateTime immatricolazione,
-            bool isUsato, bool isKmZero, int kmPercorsi, int numAirbag) 
+        private string carburante;
+        public Auto(string targa, string marca, string modello, string versione,
+            int cilindrata, string tipoVeicolo, string tipologia, int km, DateTime immatricolazione, string carburante, double prezzo) 
             : base(
-                marca, 
-                modello, 
-                colore,
-                cilindrata, 
-                potenzaKw, 
+                targa,
+                marca,
+                modello,
+                versione,
+                cilindrata,
+                tipoVeicolo,
+                tipologia,
+                km,
                 immatricolazione,
-                isUsato, 
-                isKmZero, 
-                kmPercorsi)
+                prezzo)
         {
-            this.NumAirbag = numAirbag;
+            this.Carburante = carburante; 
         }
 
-        public int NumAirbag { get => numAirbag; set => numAirbag = value; }
+        public string Carburante { get => carburante; set => carburante = value; }
 
         public override string ToString()
         {
-            return $"Auto: {base.ToString()} - {this.NumAirbag} Airbag" ;
+            return $"Auto: {base.ToString()} - {this.Carburante}" ;
         }
 
     }

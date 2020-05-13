@@ -6,7 +6,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Serialization;
-using Newtonsoft.Json;
 
 namespace VenditaVeicoliDllProject
 {
@@ -54,11 +53,25 @@ namespace VenditaVeicoliDllProject
             x.Serialize(writer, objectlist);
         }
 
-        public static void SerializeToJson<T>(IEnumerable<T> objectlist, string pathName)
-        {
-            string json = JsonConvert.SerializeObject(objectlist, Formatting.Indented);
-            File.WriteAllText(pathName, json);
-        }
+        //public static void SerializeToJson<T>(IEnumerable<T> objectlist, string pathName)
+        //{
+        //    string json = JsonConvert.SerializeObject(objectlist, Formatting.Indented);
+        //    File.WriteAllText(pathName, json);
+        //}
 
+        public static void CreateHtml(SerializableBindingList<Veicolo> l, string index = ".\\www\\index.html", string index_skeleton = ".\\www\\indexSkeleton.html")
+        {
+            string html = File.ReadAllText(index_skeleton);
+            string newElements = "";
+            foreach (Veicolo v in l)
+            {
+                newElements += $"<tr><td>{v.Targa}</td><td>{v.Marca}</td><td>{v.Modello}</td></tr>";
+            }
+            html = html.Replace("{{mainContent}}", newElements);
+            html = html.Replace("{{mainTitle}}", "carShop");
+            html = html.Replace("{{subTitle}}", "Cerca il tuo amico!");
+            File.WriteAllText(index, html);
+            System.Diagnostics.Process.Start(index);
+        }
     }
 }
